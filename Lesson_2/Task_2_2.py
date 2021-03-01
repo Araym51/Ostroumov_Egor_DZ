@@ -38,13 +38,10 @@ for b in value_list:
             c = '"' + b + '"'
             recycled.append(c)
     elif b[0] == chr(43):
-        e = '"+05"'
+        e = '"+05"'             #тут бы что поинересней выдумать по обработке, но пока так.
         recycled.append(e)
     else:
         recycled.append(b)
 
 a = ' '.join(recycled)
-
 print(a)
-print(value_list)
-print(recycled)
