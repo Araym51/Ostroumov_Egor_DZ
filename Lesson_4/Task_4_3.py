@@ -30,7 +30,7 @@ def get_currency_rate(currency_code):
         bank_date = datetime(year=int(temp_date[2]), month=int(temp_date[1]), day=int(temp_date[0]))
 
     if currency_code in content:
-        cutting_edge = content.index(user_value)
+        cutting_edge = content.index(currency_code)
     else:
         print('None')
         exit(0)
