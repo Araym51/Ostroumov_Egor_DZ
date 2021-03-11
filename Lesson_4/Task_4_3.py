@@ -31,17 +31,17 @@ def get_currency_rate(currency_code):
 
     if currency_code in content:
         cutting_edge = content.index(currency_code)
+        content = content[cutting_edge:]
+
+        if '<Value>' in content:
+            cutting_edge = content.index('<Value>')
+        content = content[cutting_edge + 7:cutting_edge + 17].split('<')
+        currency = Decimal(float(content[0].replace(',', '.')))  # такое можно делать в одну строку?
+        print(f"{currency_code} {currency:6.4} {bank_date.strftime('%Y-%m-%d')}")
+
     else:
         print('None')
         exit(0)
-
-    content = content[cutting_edge:]
-
-    if '<Value>' in content:
-        cutting_edge = content.index('<Value>')
-    content = content[cutting_edge + 7:cutting_edge + 17].split('<')
-    currency = Decimal(float(content[0].replace(',', '.')))  # такое можно делать в одну строку?
-    print(f"{currency_code} {currency:6.4} {bank_date.strftime('%Y-%m-%d')}")
 
 
 user_value = str.upper(input('Курс какой валюты нужно отобразить? '))
