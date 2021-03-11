@@ -11,11 +11,12 @@ USD 75.18, 2020-09-05
 EUR 80.35, 2020-09-05
 """
 
-from utils import get_currency_rate_terminal as GCRT
 import sys
+from utils import get_currency_rate_terminal as GCRT
 
 GCRT(sys.argv)
 
 """
-Реализовал лишь с одним аргументом
+так как функция рубит строку без остатка, программа работает лишь с одним аргументом.
+тут в общем фиаско...
 """
