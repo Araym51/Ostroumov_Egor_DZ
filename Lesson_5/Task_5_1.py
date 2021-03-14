@@ -23,7 +23,6 @@ def rand_nums(N):
 
 
 rand15 = rand_nums(15)
-print(rand15)
 i = 0
 while i < 15:
     i += 1
