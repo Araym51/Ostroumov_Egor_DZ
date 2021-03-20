@@ -10,12 +10,14 @@
 Петров,Петр,Петрович
 Фрагмент файла с данными о хобби (hobby.csv):
 скалолазание,охота
-горные лыжи"""
+горные лыжи
+"""
 
 import json
 
 file_hobby = open('hobby.csv', 'r', encoding='utf-8')
 file_users = open('users.csv', 'r', encoding='utf-8')
+file_result = open('result.csv', 'a', encoding='utf-8')
 result_dict = {}
 line_user = file_users.readline()
 line_hobby = file_hobby.readline()
@@ -24,10 +26,11 @@ while line_user:
     result_dict.setdefault(line_user, line_hobby)   # Никак не мог додуматься как читать  два файла одновременно.
     line_user = file_users.readline()               # озарение было внезапным.
     line_hobby = file_hobby.readline()
+    converter = json.dumps(result_dict)
+    file_result.write(converter)
+    result_dict = {}
 
 file_hobby.close()
 file_users.close()
+file_result.close()
 
-with open('result_Task_6_3.csv', 'a', encoding='utf-') as file_result:
-    converter = json.dumps(result_dict)
-    file_result.write(converter)
